@@ -5,7 +5,7 @@ from pyrogram.types import Message
 from bot.config import Buttons
 from bot.utils import search_number
 import html2text
-
+import json
 @Client.on_message(
     filters.regex(f"{Buttons.trucaller_info_text}") & filters.private & filters.incoming
 )
@@ -33,7 +33,8 @@ async def truecaller_info(client: Client, message: Message):
         await message.reply_text(f"Error : `{e}`")
         return
     try:
-        data = result["data"][0]
+        datax = json.loads(result)
+        data = datax["data"][0]
         text = f"""Information found on Truecaller for {ask.text}:
 Name: {data.get('name')}
 Gender: {data.get('gender')}
