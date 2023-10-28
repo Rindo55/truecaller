@@ -17,7 +17,7 @@ async def truecaller_info(client: Client, message: Message):
         filters=filters.text,
         timeout=3600,
     )
-
+    print(ask)
     regex = r"^\+?[1-9]\d{1,14}$"
 
     if not re.search(regex, ask.text):
@@ -28,6 +28,7 @@ async def truecaller_info(client: Client, message: Message):
 
     try:
         result = await search_number(ask.text)  # Await the search_number coroutine
+        print(result)
         data = result["data"][0]  # Access data from the awaited result
         text = f"""Information found on Truecaller for {ask.text}:
 
