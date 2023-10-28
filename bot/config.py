@@ -19,7 +19,7 @@ class Config(object):
     BOT_TOKEN = "6668638067:AAGwkQ8195D3rbspD2r4HDFjyEsaAiD7G3w"
     DATABASE_NAME = os.environ.get("DATABASE_NAME", "tg_bot")
     DATABASE_URL = os.environ.get("DATABASE_URL", 'mongodb+srv://Lovely:Lovely@cluster0.fsid0.mongodb.net/myFirstDatabase?retryWrites=true&w=majority')
-    OWNER_ID = int(os.environ.get("OWNER_ID"))
+    OWNER_ID = 1863307059
     LOG_CHANNEL = int(os.environ.get("LOG_CHANNEL", "0"))
 
     # optional
