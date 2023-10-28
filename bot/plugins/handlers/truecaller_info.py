@@ -28,8 +28,9 @@ async def truecaller_info(client: Client, message: Message):
 
     try:
         result = await search_number(ask.text)  # Await the search_number coroutine
+        print(result)
         if "data" in result and result["data"]:
-            data = result["data"][0]  # Access data from the awaited result
+            data = result["data"]  # Access data from the awaited result
         # Code to process the data
         else:
             await txt.edit("No information found for the number.")
