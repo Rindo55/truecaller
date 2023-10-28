@@ -27,13 +27,8 @@ async def truecaller_info(client: Client, message: Message):
     txt = await message.reply_text("Searching for the number...")
 
     try:
-        result = await search_number(ask.text)
-    except Exception as e:
-        await message.reply_text(f"Error: {e}")
-        return
-
-    try:
-        data = result.data[0]
+        result = await search_number(ask.text)  # Await the search_number coroutine
+        data = result.data[0]  # Access data from the awaited result
         text = f"""Information found on Truecaller for {ask.text}:
 
 Name: {data.get('name')}
