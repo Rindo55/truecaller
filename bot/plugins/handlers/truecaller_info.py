@@ -33,15 +33,9 @@ async def truecaller_info(client: Client, message: Message):
         await message.reply_text(f"Error : `{e}`")
         return
     try:
-        datax = json.loads(result)
-        data = datax["data"][0]
+        data = result["data"]
         text = f"""Information found on Truecaller for {ask.text}:
-Name: {data.get('name')}
-Gender: {data.get('gender')}
-Score: {data.get('score')}
-Carrier: {data.get('phones', [{}])[0].get('carrier') if data.get('phones') else None}
-Address: {data.get('addresses', [{}])[0].get('city') if data.get('addresses') else None} 
-Email: {data.get('internetAddresses', [{}])[0].get('id') if data.get('internetAddresses') else None}
+Name: {result["data"]["data"][0]["name"]}
 """
         await txt.edit(text=text, disable_web_page_preview=True)
     except Exception as e:
