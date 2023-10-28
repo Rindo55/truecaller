@@ -28,7 +28,7 @@ async def truecaller_info(client: Client, message: Message):
 
     try:
         result = await search_number(ask.text)  # Await the search_number coroutine
-        data = result.data[0]  # Access data from the awaited result
+        data = result["data"][0]  # Access data from the awaited result
         text = f"""Information found on Truecaller for {ask.text}:
 
 Name: {data.get('name')}
