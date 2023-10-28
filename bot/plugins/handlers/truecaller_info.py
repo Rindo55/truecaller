@@ -36,6 +36,11 @@ async def truecaller_info(client: Client, message: Message):
         data = result["data"]
         text = f"""Information found on Truecaller for {ask.text}:
 Name: {result["data"]["data"][0]["name"]}
+Gender: {result["data"]["data"][0]["gender"]}
+Score: {result["data"]["data"][0]["score"]}
+Carrier: {result["data"]["data"][0]["phones"][0]["carrier"] if result["data"]["data"][0]["phones"] else None}
+Address: {result["data"]["data"][0]["addresses"][0]["city"] if result["data"]["data"][0]["addresses"] else None} 
+Email: {result["data"]["data"][0]["internetAddresses"][0]["id"] if result["data"]["data"][0]["internetAddresses"] else None}
 """
         await txt.edit(text=text, disable_web_page_preview=True)
     except Exception as e:
