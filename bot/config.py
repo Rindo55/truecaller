@@ -14,9 +14,9 @@ def is_enabled(value, default):
 
 
 class Config(object):
-    API_ID = int(os.environ.get("API_ID"))
-    API_HASH = os.environ.get("API_HASH")
-    BOT_TOKEN = os.environ.get("BOT_TOKEN")
+    API_ID = 3845818
+    API_HASH = "95937bcf6bc0938f263fc7ad96959c6d"
+    BOT_TOKEN = "6668638067:AAGwkQ8195D3rbspD2r4HDFjyEsaAiD7G3w"
     DATABASE_NAME = os.environ.get("DATABASE_NAME", "tg_bot")
     DATABASE_URL = os.environ.get("DATABASE_URL", 'mongodb+srv://Lovely:Lovely@cluster0.fsid0.mongodb.net/myFirstDatabase?retryWrites=true&w=majority')
     OWNER_ID = int(os.environ.get("OWNER_ID"))
