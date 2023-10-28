@@ -30,7 +30,7 @@ async def truecaller_info(client: Client, message: Message):
         result = await search_number(ask.text)  # Await the search_number coroutine
         print(result)
         if "data" in result and result["data"]:
-            data = result["data"]["data"][0]  # Access data from the awaited result
+            data = result["data"][0]  # Access data from the awaited result
         # Code to process the data
         else:
             await txt.edit("No information found for the number.")
@@ -41,9 +41,9 @@ async def truecaller_info(client: Client, message: Message):
 Name: {data.get('name')}
 Gender: {data.get('gender')}
 Score: {data.get('score')}
-Carrier: {data.phones[0].carrier if data.phones else None}
-Address: {data.addresses[0].city if data.addresses else None}
-Email: {data.internetAddresses[0].id if data.internetAddresses else None}
+Carrier: {data.get('phones', [{}])[0].get('carrier') if data.get('phones') else None}
+Address: {data.get('addresses', [{}])[0].get('city') if data.get('addresses') else None} 
+Email: {data.get('internetAddresses', [{}])[0].get('id') if data.get('internetAddresses') else None}
 """
         await txt.edit(text=text, disable_web_page_preview=True)
     except Exception as e:
