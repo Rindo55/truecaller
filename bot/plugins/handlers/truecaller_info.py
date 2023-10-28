@@ -35,6 +35,8 @@ async def truecaller_info(client: Client, message: Message):
             await txt.edit("No information found for the number.")
     except Exception as e:
         await txt.edit(f"Error: {e}")
+
+        text = f"""Information found on Truecaller for {ask.text}:
 Name: {data.get('name')}
 Gender: {data.get('gender')}
 Score: {data.get('score')}
