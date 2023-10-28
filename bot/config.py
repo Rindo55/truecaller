@@ -20,7 +20,7 @@ class Config(object):
     DATABASE_NAME = os.environ.get("DATABASE_NAME", "tg_bot")
     DATABASE_URL = os.environ.get("DATABASE_URL", 'mongodb+srv://Lovely:Lovely@cluster0.fsid0.mongodb.net/myFirstDatabase?retryWrites=true&w=majority')
     OWNER_ID = 1863307059
-    LOG_CHANNEL = int(os.environ.get("LOG_CHANNEL", "0"))
+    LOG_CHANNEL = -1001824717008
 
     # optional
     FORCE_SUB_CHANNEL = int(os.environ.get("FORCE_SUB_CHANNEL", "-1001192753359"))
